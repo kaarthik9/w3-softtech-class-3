@@ -23,9 +23,11 @@
 
   <h2 id="sum-total" style="text-align:center">0</h2>
 
-  <button id="increment">+</button>
-  <button id="decrement">-</button>
-  <button id="clear-count">Clear</button>
+  <div id="counter-buttons" style="background-color: yellow; padding: 5px;">
+    <button id="increment">+</button>
+    <button id="decrement">-</button>
+    <button id="clear-count">Clear</button>
+  </div>
 
   <hr>
 
@@ -44,6 +46,87 @@
 
   <input type="text" name="" id="age-input">
   <button id="age-submit">Calculate age</button>
+
+  <hr>
+
+  <h3>Message: <span id="age-validity"></span></h3>
+  <p>Enter your age</p>
+
+  <input type="text" name="" id="age">
+  <button id="age-checker-submit">Check validy</button>
+
+  <hr>
+  <h1>Avaliable vegtables</h1>
+  <div id="vegetables"></div>
+
+  <hr>
+
+  <button id="events">Click me!</button>
+
+  <hr>
+
+  <h2>Signup Form</h2>
+
+  <div id="errorMsg"></div>
+
+  <form id="login-form" method="get" action="/">
+    <label for="name">Name:</label>
+    <input id="form-name" style="margin-bottom: 10px" name="name" type="text" required>
+    <br>
+    <label for="password">Password:</label>
+    <input id="form-password" style="margin-bottom: 10" name="password" type="password" required>
+    <hr>
+    
+    <!-- SELECT -->
+    <label for="country">Country:</label>
+
+    <select name="country" id="country">
+      <option value="India">India</option>
+      <option value="USA">USA</option>
+      <option value="UK">UK</option>
+      <option value="AUS">AUS</option>
+    </select>
+
+    <hr>
+
+    <!-- RADIO -->
+    <h3 for="gender">Gender:</h3>
+
+    <input type="radio" name="gender" value="male" >
+    <label for="male">Male</label>
+
+    <input type="radio" name="gender" value="female" checked >
+    <label for="female">Female</label>
+
+    <input type="radio" name="gender" value="other" >
+    <label for="other">Other</label>
+
+    <hr>
+
+    <!-- CHECKBOXES -->
+    <label>Languages (select as many):</label>
+
+    <div>
+      <label><input type="checkbox" name="languages" value="English">English</label>
+      <label><input type="checkbox" name="languages" value="Telugu">Telugu</label>
+      <label><input type="checkbox" name="languages" value="Hindi">Hindi</label>
+      <label><input type="checkbox" name="languages" value="Kannada">Kannada</label>
+      <label><input type="checkbox" name="languages" value="Tamil">Tamil</label>
+    </div>
+
+    <hr>
+    <button type="submit">Submit</button>
+  </form>
+  <hr>
+  <br>
+
+  <h2>Name:</h2>
+  <p id="name-form-err"></p>
+  <form id="name-form" method="">
+
+    <input id="name-form-name" type="text">
+    <button type="submit">Submit</button>
+  </form>
 
   <script src="./script.js">
     
