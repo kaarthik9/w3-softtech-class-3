@@ -624,28 +624,23 @@ const eventsBtn = document.querySelector("#events");
 // };
 
 eventsBtn.addEventListener("click", (e) => {
-  console.log("Clicked")
-})
-
+  console.log("Clicked");
+});
 
 // event delegation
 
-
 // forms
 
-const loginForm = document.querySelector("#login-form")
-const formName = document.querySelector("#form-name")
-const formPassword = document.querySelector("#form-password")
-const country = document.querySelector("#country")
-
+const loginForm = document.querySelector("#login-form");
+const formName = document.querySelector("#form-name");
+const formPassword = document.querySelector("#form-password");
+const country = document.querySelector("#country");
 
 loginForm.onsubmit = (e) => {
+  e.preventDefault();
 
-  e.preventDefault()
-
-  let typedName = formName.value
-  let typedPassword = formPassword.value
-
+  let typedName = formName.value;
+  let typedPassword = formPassword.value;
 
   // if (typedName !== usersName || typedPassword !== password) {
   //   alert("Please enter correct name and password")
@@ -655,64 +650,173 @@ loginForm.onsubmit = (e) => {
 
   // console.log(country.value)
 
-  let gender = document.querySelector('input[name = "gender"]:checked').value
+  let gender = document.querySelector('input[name = "gender"]:checked').value;
 
-  let languages = document.querySelectorAll('input[name = "languages"]:checked')
+  let languages = document.querySelectorAll(
+    'input[name = "languages"]:checked'
+  );
   // console.log(languages)
 
-  const languagesArray = []
+  const languagesArray = [];
 
-  for(let i = 0; i < languages.length; i++) {
-    
-    languagesArray.push(languages[i].value)
+  for (let i = 0; i < languages.length; i++) {
+    languagesArray.push(languages[i].value);
   }
 
-  console.log(languagesArray)
+  console.log(languagesArray);
 
   // console.log(gender)
-  
-  formName.value = ''
-  formPassword.value = ''
 
-
-}
+  formName.value = "";
+  formPassword.value = "";
+};
 
 // Conditions
-// right characters in name 
+// right characters in name
 // if inputs are empty
 // notify if wrong
 
-
-
 // APIs
 
-
-const nameFormName = document.getElementById("name-form-name")
-const errMsg = document.getElementById("name-form-err")
+const nameFormName = document.getElementById("name-form-name");
+const errMsg = document.getElementById("name-form-err");
 
 document.getElementById("name-form").onsubmit = (e) => {
   e.preventDefault();
-  
-  if(nameFormName.value === '') {
+
+  if (nameFormName.value === "") {
     errMsg.style.display = "block";
-    errMsg.innerHTML = "Please enter a name"
-    errMsg.style.color = "red"
+    errMsg.innerHTML = "Please enter a name";
+    errMsg.style.color = "red";
   }
-  
+
   setTimeout(() => {
-    errMsg.style.display = "none"
-  }, 3000)
-}
+    errMsg.style.display = "none";
+  }, 3000);
+};
+
+// APIs
 
 let password;
-// console.log(xyz)
 
+// API request
 setTimeout(() => {
-  password = "HUFfdfbDD0)"
-}, 3000)
+  password = "HUFfdfbDD0)";
+}, 3000);
 
-
-console.log(password)
-
+console.log(password);
 
 // Promises
+
+let p = new Promise((resolve) => {
+  // API request
+  setTimeout(() => {
+    resolve("HUFfdfbDD0)");
+  }, 3000);
+});
+
+p.then((response) => {
+  console.log(response);
+});
+
+let eg1Name;
+
+let eg1 = new Promise((resolve) => {
+  resolve("Ravi");
+});
+
+eg1.then((res) => {
+  eg1Name = res;
+  console.log(eg1Name);
+});
+
+let eg2Name;
+
+let eg2 = new Promise((resolve) => {
+  setTimeout(() => {
+    resolve((eg2Name = "Ramu"));
+  }, 5000);
+});
+
+eg2.then(() => {
+  console.log(eg2Name);
+});
+
+let eg3 = new Promise((resolve, reject) => {
+  let num = 5;
+
+  if (num > 10) {
+    resolve("Success. You got approved!");
+  } else {
+    reject("Something went wrong!");
+  }
+});
+
+eg3.then((res) => console.log(res)).catch((err) => console.log(err));
+
+// Cat API
+const catApiImg = document.querySelector("#cat-api-img");
+
+let catText = "Hello Ramu";
+
+let fetchedData = fetch(`https://cataas.com/cat/angry/says/${catText}`);
+
+// console.log(fetchedData)
+
+fetchedData.then((res) => {
+  console.log(res);
+  catApiImg.src = res.url;
+});
+
+
+
+
+
+let catUrl = "https://api.thecatapi.com/v1/images/search?size=full";
+
+fetch(catUrl)
+  .then((res) => res.json())
+  .then((data) => {
+    console.log(data[0].url);
+  });
+
+
+// Signup form
+// when subitted Signup form should dissapper
+// Login form
+// "you are logged in!"
+
+
+
+
+const options = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': '65014af152msh87eda40a94ca1e5p1d1562jsnaa6da74196b4',
+		'X-RapidAPI-Host': 'weatherapi-com.p.rapidapi.com'
+	}
+};
+
+// let weatherLocation = "DEL"
+
+// fetch(`https://weatherapi-com.p.rapidapi.com/current.json?q=${weatherLocation}`, options)
+// 	.then(response => response.json())
+// 	.then(response => console.log(response))
+// 	.catch(err => console.error(err));
+
+
+const weatherForm = document.querySelector('#weather-form');
+const weatherInput = document.querySelector('#weather-form-input');
+const weatherBtn = document.querySelector('#weather-submit-btn');
+
+
+weatherForm.onsubmit = (e) => {
+  e.preventDefault();
+
+  let weatherQuery = weatherInput.value
+
+  fetch(`https://weatherapi-com.p.rapidapi.com/current.json?q=${weatherQuery}`, options)
+	.then(response => response.json())
+	.then(response => alert(`${response.current.temp_c} Celsius`))
+	.catch(err => console.error(err));
+}
