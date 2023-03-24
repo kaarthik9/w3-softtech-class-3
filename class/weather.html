@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="weather.css">
+  <title>Weather App</title>
+</head>
+<body class="text-center">
+
+  <h1 class="banner p-3">Weather App</h1>
+  
+  <form id="weather-form" class="form-group" action="">
+    <input id="city-input" class="mb-3 form-control form-control-lg" type="text" placeholder="Enter a location">
+
+    <button class="btn btn-primary m-3" type="submit">Get Data</button>
+  </form>
+
+  <hr>
+  <div>
+    <div class="card">
+      <div class="card-header">
+        <h4 id="city-name" class="font-weight-normal">---</h4>
+      </div>
+
+      <div class="card-body">
+
+        <h1 id="condition"><i id="icon"></i>----</h1>
+
+        <ul class="list-unstyled mt-4" >
+          <li>Temp: <span id="temp">---</span>°C</li>
+          <li>Humidity: <span id="humidity">---</span></li>
+          <li>Feels like: <span id="feels-like">---</span></li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="weather.js"></script>
+</body>
+</html>
