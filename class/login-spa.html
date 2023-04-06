@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./login-spa.css">
+    <title>Single Page Application</title>
+  </head>
+  <body>
+
+    <!-- SIGNUP FORM -->
+    <div class="signup-form">
+      <h2>Sign Up</h2>
+      <form id="signup-form" action="">
+        <label for="firstname">First Name</label>
+        <input
+          name="firstname"
+          id="signup-first"
+          type="text"
+          placeholder="First Name"
+        />
+        <br />
+        <label for="lastname">Last Name</label>
+        <input name="lastname" id="signup-last" placeholder="Last Name" type="text" />
+        <br />
+        <label for="password">New password:</label>
+        <input type="password" name="password" id="signup-pass" />
+        <br>
+        <label for="re-password">Confirm password:</label>
+        <input type="password" name="re-password" id="confirm-pass">
+        <br>
+        <button type="submit">Sign up</button>
+      </form>
+    </div>
+
+    <!-- Login form -->
+    <div id="login-form-div">
+      <h2>Login Form:</h2>
+
+      <form action="" id="login-form">
+        Name: <input type="text" placeholder="First Name" name="" id="login-name">
+        <br>
+        Password: <input type="password" placeholder="Password" name="" id="login-pass">
+        <br>
+        <button type="submit">Login</button>
+      </form>
+    </div>
+
+    <div id="login-msg">
+      <h1>You're Logged in!</h1>
+    </div>
+
+<script src="/login-spa.js"></script>
+  </body>
+</html>

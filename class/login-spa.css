@@ -1,0 +1,15 @@
+
+body {
+  height: 1000px;
+}
+
+#login-msg {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#login-form-div, #login-msg {
+  display: none;
+}
